@@ -44,7 +44,7 @@ async def channel_post(client: Client, message: Message):
             SL_API=ODD[filname][2]
             bot_msg = await message.reply_text("Please Wait...!", quote = True)
             await asyncio.sleep(2)
-            e_pic = await message.reply_photo(photo=pic, caption=f"....", quote = True)
+            e_pic = await client.send_photo(chat_id = int(-1001956515516), photo=pic, caption=f"....")
             await asyncio.sleep(2)
     elif int(dateexc) % 2 == 0:
         if filname in media.file_name:
@@ -54,7 +54,7 @@ async def channel_post(client: Client, message: Message):
             SL_API=EVEN[filname][2] 
             bot_msg = await message.reply_text("Please Wait...!", quote = True)
             await asyncio.sleep(2)
-            e_pic = await message.reply_photo(photo=pic, caption=f"....", quote = True)
+            e_pic = await client.send_photo(chat_id = int(-1001956515516), photo=pic, caption=f"....")
             await asyncio.sleep(2)
     else:
         reply_text = await message.reply_text("❌Don't send me messages directly I'm only for serials!")
@@ -105,23 +105,23 @@ async def channel_post(client: Client, message: Message):
 
     t = datetime.now(india)
     TIME_DAY = t.strftime('%H:%M %p')
-    if TIME_DAY == "16:45 PM":
+    if TIME_DAY == "16:59 PM":
         if len(TDSTAR_SUVARNA) and len(TDCOLORS_KANNADA) and len(TDZEE_KANNADA) > 0:
             for KEY in TDSTAR_SUVARNA:
                 txt_star = ''
                 txt_star += f"{KEY}\n{TDSTAR_SUVARNA[KEY]}\n\n"
                 
-            await client.send_message(chat_id=message.chat.id, text = txt_star)
+            await client.send_message(chat_id=int(-1001956515516), text = txt_star)
             for KEY in TDCOLORS_KANNADA:
                 txt_color = ''
                 txt_color += f"{KEY}\n{TDCOLORS_KANNADA[KEY]}\n\n"
                 
-            await client.send_message(chat_id=message.chat.id, text = txt_color)
+            await client.send_message(chat_id=int(-1001956515516), text = txt_color)
             for KEY in TDZEE_KANNADA:
                 txt_zee = ''
                 txt_zee += f"{KEY}\n{TDZEE_KANNADA[KEY]}\n\n"
                 
-            await client.send_message(chat_id=message.chat.id, text = txt_zee)
+            await client.send_message(chat_id=int(-1001956515516), text = txt_zee)
             TDSTAR_SUVARNA.clear()
             TDCOLORS_KANNADA.clear()
             TDZEE_KANNADA.clear()
@@ -135,7 +135,7 @@ async def channel_post(client: Client, message: Message):
                 txt_star = ''
                 txt_star += f"{KEY}\n{TDSTAR_SUVARNA[KEY]}\n\n"
                 
-            await client.send_message(chat_id=message.chat.id, text = txt_star)
+            await client.send_message(chat_id=int(-1001956515516), text = txt_star)
             TDSTAR_SUVARNA.clear()
             TRSTAR_SUVARNA.clear()
         elif len(TRCOLORS_KANNADA) > 0:
@@ -145,7 +145,7 @@ async def channel_post(client: Client, message: Message):
                 txt_color = ''
                 txt_color += f"{KEY}\n{TDCOLORS_KANNADA[KEY]}\n\n"
                 
-            await client.send_message(chat_id=message.chat.id, text = txt_color)
+            await client.send_message(chat_id=int(-1001956515516), text = txt_color)
             TDCOLORS_KANNADA.clear()
             TRCOLORS_KANNADA.clear()
         elif len(TRZEE_KANNADA) > 0:
@@ -155,7 +155,7 @@ async def channel_post(client: Client, message: Message):
                 txt_zee = ''
                 txt_zee += f"{KEY}\n{TDZEE_KANNADA[KEY]}\n\n"
                 
-            await client.send_message(chat_id=message.chat.id, text = txt_zee)
+            await client.send_message(chat_id=int(-1001956515516), text = txt_zee)
             TDZEE_KANNADA.clear()
             TRZEE_KANNADA.clear()
         else:
@@ -163,8 +163,8 @@ async def channel_post(client: Client, message: Message):
             
             
     #here we delete the edited post from the bot after 5min
-    time.sleep(300)
-    await e_pic.delete()
+    # time.sleep(300)
+    # await e_pic.delete()
     
 
 async def get_short(SL_URL, SL_API, Tlink):
