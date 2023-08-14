@@ -23,6 +23,13 @@ async def date(bot, message):
         			InlineKeyboardButton("Today",callback_data = 'tdy'), 
         			InlineKeyboardButton("Tommorow",callback_data='tmr') ]]))
 
+TDSTAR_SUVARNA=dict()
+TDCOLORS_KANNADA=dict()
+TDZEE_KANNADA=dict()
+
+TRSTAR_SUVARNA=dict()
+TRCOLORS_KANNADA=dict()
+TRZEE_KANNADA=dict()
 @Bot.on_message(filters.private & filters.user(ADMINS) & ~filters.text & ~filters.command(['start','users','broadcast','batch','genlink','stats']))
 async def channel_post(client: Client, message: Message):
     dateexc = datetime.now().strftime("%d")
@@ -74,14 +81,6 @@ async def channel_post(client: Client, message: Message):
     td = datetime.now(india)
     FILES_NAME = filname.replace("_"," ")
     tr = datetime.now(india) + timedelta(1)
-
-    TDSTAR_SUVARNA=dict()
-    TDCOLORS_KANNADA=dict()
-    TDZEE_KANNADA=dict()
-
-    TRSTAR_SUVARNA=dict()
-    TRCOLORS_KANNADA=dict()
-    TRZEE_KANNADA=dict()
 
     if DATEDAY[-1] == str(td.strftime("%d - %m - %Y")):
         if FILES_NAME in STAR_SUVARNA:
