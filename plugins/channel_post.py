@@ -72,12 +72,18 @@ async def channel_post(client: Client, message: Message):
 
     india = pytz.timezone("Asia/Kolkata")
     td = datetime.now(india)
-    FILES_NAME = filname.split("S0")[0]
+    FILES_NAME = filname.replace("_"," ")
     tr = datetime.now(india) + timedelta(1)
+
+    TDSTAR_SUVARNA=dict()
+    TDCOLORS_KANNADA=dict()
+    TDZEE_KANNADA=dict()
+
+    TRSTAR_SUVARNA=dict()
+    TRCOLORS_KANNADA=dict()
+    TRZEE_KANNADA=dict()
+
     if DATEDAY[-1] == str(td.strftime("%d - %m - %Y")):
-        TDSTAR_SUVARNA=dict()
-        TDCOLORS_KANNADA=dict()
-        TDZEE_KANNADA=dict()
         if FILES_NAME in STAR_SUVARNA:
             TDSTAR_SUVARNA[FILES_NAME]=Slink
         if FILES_NAME in COLORS_KANNADA:
@@ -87,9 +93,6 @@ async def channel_post(client: Client, message: Message):
         else:
             pass
     elif DATEDAY[-1] == str(tr.strftime("%d - %m - %Y")):
-        TRSTAR_SUVARNA=dict()
-        TRCOLORS_KANNADA=dict()
-        TRZEE_KANNADA=dict()
         if FILES_NAME in STAR_SUVARNA:
             TRSTAR_SUVARNA[FILES_NAME]=Slink
         if FILES_NAME in COLORS_KANNADA:
