@@ -103,7 +103,7 @@ async def channel_post(client: Client, message: Message):
 
     t = datetime.now(india)
     TIME_DAY = t.strftime('%H:%M %p')
-    if TIME_DAY == "24:50 PM":
+    if TIME_DAY == "16:10 PM":
         if len(TDSTAR_SUVARNA) and len(TDCOLORS_KANNADA) and len(TDZEE_KANNADA) > 0:
             for KEY in TDSTAR_SUVARNA:
                 await client.send_message(chat_id=message.chat.id, text = f"{KEY}\n{TDSTAR_SUVARNA[KEY]}\n\n")
