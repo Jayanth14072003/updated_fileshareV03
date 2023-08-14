@@ -46,6 +46,12 @@ Elements in "{}{}"
 3.Date : {} 
 </b>"""
 
+ZEE_KANNADA = ['Trinayani','Annapoorna','Kalyanamasthu','Vaidehi Parinaya','Punarvivaha','Paaru','Bhoomige Bandha Bhagavantha','Puttakkana Makkalu','Gattimela','Manemagalu','Sandhyaraaga','SeethaRaama','Amruthadhaare','Mahanayaka Dr B R Ambedkar','Shrirasthu Shubhamasthu','Soubhagyavati Bhava','Hitler Kalyana','Sathya','Dance Karnataka Dance Season 7','Bharjari Bachelors','Couples Kitchen','Chota Champion']
+
+STAR_SUVARNA = ['Neenadhe Naa','Namma Lachi','Nagapanchami','Raani','Katheyondu Shuruvagide','O MuddhuManase','Jenugudu','Udho Udho Shri Renuka Yellamma','Aragini 2','Honganasu','Anuraga Aralitu','Anupama Sarvagunaa Sampanne','Yediyur Shree Siddhalingeshwara','Bombat Bhojana','Suvarna Superstar']
+
+COLORS_KANNADA = ['Pavada Purasha','Olavina Nildana','Kendasampige','Bhagyalakshmi','Ramachari','Lakshmi Baramma','Geetha','Lakshana','Punyavathi','Tripura Sundari','Antarapata','Gruhapravesha','Ganda Hendthi','Shantham Papam','Muddu Bangara','Gunasundari','Family Gangstars']
+
 ODD = {
         'Trinayani_':['https://graph.org/file/1f2827a0980cc418ee6e1.jpg','moneycase.link','3353ec87137e166f8561b86284728bd93e1b8bdf',''],
         'Annapoorna_':['https://graph.org/file/baff21a920cc09f0ba89a.jpg','moneycase.link','e9872aa279e0a57e59cf4ef3d20bea8c3be0571d',''],
