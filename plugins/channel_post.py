@@ -105,7 +105,7 @@ async def channel_post(client: Client, message: Message):
 
     t = datetime.now(india)
     TIME_DAY = t.strftime('%H:%M %p')
-    if TIME_DAY == "16:59 PM":
+    if TIME_DAY == "17:10 PM":
         if len(TDSTAR_SUVARNA) and len(TDCOLORS_KANNADA) and len(TDZEE_KANNADA) > 0:
             for KEY in TDSTAR_SUVARNA:
                 txt_star = ''
