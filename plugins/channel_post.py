@@ -103,7 +103,7 @@ async def channel_post(client: Client, message: Message):
 
     t = datetime.now(india)
     TIME_DAY = t.strftime('%H:%M %p')
-    if TIME_DAY == "16:10 PM":
+    if TIME_DAY == "16:20 PM":
         if len(TDSTAR_SUVARNA) and len(TDCOLORS_KANNADA) and len(TDZEE_KANNADA) > 0:
             for KEY in TDSTAR_SUVARNA:
                 txt_star = ''
@@ -111,9 +111,15 @@ async def channel_post(client: Client, message: Message):
                 
             await client.send_message(chat_id=message.chat.id, text = txt_star)
             for KEY in TDCOLORS_KANNADA:
-                await client.send_message(chat_id=message.chat.id, text = f"{KEY}\n{TDCOLORS_KANNADA[KEY]}\n\n")
+                txt_color = ''
+                txt_color += f"{KEY}\n{TDCOLORS_KANNADA[KEY]}\n\n"
+                
+            await client.send_message(chat_id=message.chat.id, text = txt_color)
             for KEY in TDZEE_KANNADA:
-                await client.send_message(chat_id=message.chat.id, text = f"{KEY}\n{TDZEE_KANNADA[KEY]}\n\n")
+                txt_zee = ''
+                txt_zee += f"{KEY}\n{TDZEE_KANNADA[KEY]}\n\n"
+                
+            await client.send_message(chat_id=message.chat.id, text = txt_zee)
             TDSTAR_SUVARNA.clear()
             TDCOLORS_KANNADA.clear()
             TDZEE_KANNADA.clear()
@@ -123,21 +129,30 @@ async def channel_post(client: Client, message: Message):
             TDSTAR_SUVARNA.clear()
             TDSTAR_SUVARNA = TRSTAR_SUVARNA
             for KEY in TDSTAR_SUVARNA:
-                await client.send_message(chat_id=message.chat.id, text = f"{KEY}\n{TDSTAR_SUVARNA[KEY]}\n\n")
+                txt_star = ''
+                txt_star += f"{KEY}\n{TDSTAR_SUVARNA[KEY]}\n\n"
+                
+            await client.send_message(chat_id=message.chat.id, text = txt_star)
             TDSTAR_SUVARNA.clear()
             TRSTAR_SUVARNA.clear()
         elif len(TRCOLORS_KANNADA) > 0:
             TDCOLORS_KANNADA.clear()
             TDCOLORS_KANNADA = TRCOLORS_KANNADA
             for KEY in TDCOLORS_KANNADA:
-                await client.send_message(chat_id=message.chat.id, text = f"{KEY}\n{TDCOLORS_KANNADA[KEY]}\n\n")
+                txt_color = ''
+                txt_color += f"{KEY}\n{TDCOLORS_KANNADA[KEY]}\n\n"
+                
+            await client.send_message(chat_id=message.chat.id, text = txt_color)
             TDCOLORS_KANNADA.clear()
             TRCOLORS_KANNADA.clear()
         elif len(TRZEE_KANNADA) > 0:
             TDZEE_KANNADA.clear()
             TDZEE_KANNADA = TRZEE_KANNADA
             for KEY in TDZEE_KANNADA:
-                await client.send_message(chat_id=message.chat.id, text = f"{KEY}\n{TDZEE_KANNADA[KEY]}\n\n")
+                txt_zee = ''
+                txt_zee += f"{KEY}\n{TDZEE_KANNADA[KEY]}\n\n"
+                
+            await client.send_message(chat_id=message.chat.id, text = txt_zee)
             TDZEE_KANNADA.clear()
             TRZEE_KANNADA.clear()
         else:
