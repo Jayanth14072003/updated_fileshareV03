@@ -4,17 +4,17 @@ import asyncio
 from pyrogram import filters, Client
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import FloodWait
-from plugins.data import ODD, EVEN ,BOTEFITMSG, FOMET
+from plugins.data import ODD, EVEN ,BOTEFITMSG, FOMET, ZEE_KANNADA, STAR_SUVARNA, COLORS_KANNADA
 from plugins.cbb import DATEDAY
 from bot import Bot
 from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON
-from datetime import datetime
+from datetime import datetime, timedelta
 from helper_func import encode
 from pyshorteners import Shortener
 import string
 import re
 import time
-
+import pytz
 
 @Client.on_message(filters.private & filters.command(["date"]))
 async def date(bot, message):
@@ -69,8 +69,82 @@ async def channel_post(client: Client, message: Message):
     Slink = await get_short(SL_URL, SL_API, Tlink)
     await bot_msg.edit(BOTEFITMSG.format(filname, botfsno[0], Tlink, Slink, DATEDAY[0]))
     await e_pic.edit(FOMET.format(DATEDAY[-1], Slink, Slink))
+
+    india = pytz.timezone("Asia/Kolkata")
+    td = datetime.now(india)
+    FILES_NAME = filname.split("S0")[0]
+    tr = datetime.now(india) + timedelta(1)
+    if DATEDAY[-1] == str(td.strftime("%d - %m - %Y")):
+        TDSTAR_SUVARNA=dict()
+        TDCOLORS_KANNADA=dict()
+        TDZEE_KANNADA=dict()
+        if FILES_NAME in STAR_SUVARNA:
+            TDSTAR_SUVARNA[FILES_NAME]=Slink
+        if FILES_NAME in COLORS_KANNADA:
+            TDCOLORS_KANNADA[FILES_NAME]=Slink
+        if FILES_NAME in ZEE_KANNADA:
+            TDZEE_KANNADA[FILES_NAME]=Slink
+        else:
+            pass
+    elif DATEDAY[-1] == str(tr.strftime("%d - %m - %Y")):
+        TRSTAR_SUVARNA=dict()
+        TRCOLORS_KANNADA=dict()
+        TRZEE_KANNADA=dict()
+        if FILES_NAME in STAR_SUVARNA:
+            TRSTAR_SUVARNA[FILES_NAME]=Slink
+        if FILES_NAME in COLORS_KANNADA:
+            TRCOLORS_KANNADA[FILES_NAME]=Slink
+        if FILES_NAME in ZEE_KANNADA:
+            TRZEE_KANNADA[FILES_NAME]=Slink
+        else:
+            pass
+    else:
+        pass
+
+    t = datetime.now(india)
+    TIME_DAY = t.strftime('%H:%M %p')
+    if TIME_DAY == "24:50 PM":
+        if len(TDSTAR_SUVARNA) and len(TDCOLORS_KANNADA) and len(TDZEE_KANNADA) > 0:
+            for KEY in TDSTAR_SUVARNA:
+                await client.send_message(chat_id=message.chat.id, text = f"{KEY}\n{TDSTAR_SUVARNA[KEY]}\n\n")
+            for KEY in TDCOLORS_KANNADA:
+                await client.send_message(chat_id=message.chat.id, text = f"{KEY}\n{TDCOLORS_KANNADA[KEY]}\n\n")
+            for KEY in TDZEE_KANNADA:
+                await client.send_message(chat_id=message.chat.id, text = f"{KEY}\n{TDZEE_KANNADA[KEY]}\n\n")
+            TDSTAR_SUVARNA.clear()
+            TDCOLORS_KANNADA.clear()
+            TDZEE_KANNADA.clear()
+        else:
+            pass
+        if len(TRSTAR_SUVARNA) > 0:
+            TDSTAR_SUVARNA.clear()
+            TDSTAR_SUVARNA = TRSTAR_SUVARNA
+            for KEY in TDSTAR_SUVARNA:
+                await client.send_message(chat_id=message.chat.id, text = f"{KEY}\n{TDSTAR_SUVARNA[KEY]}\n\n")
+            TDSTAR_SUVARNA.clear()
+            TRSTAR_SUVARNA.clear()
+        elif len(TRCOLORS_KANNADA) > 0:
+            TDCOLORS_KANNADA.clear()
+            TDCOLORS_KANNADA = TRCOLORS_KANNADA
+            for KEY in TDCOLORS_KANNADA:
+                await client.send_message(chat_id=message.chat.id, text = f"{KEY}\n{TDCOLORS_KANNADA[KEY]}\n\n")
+            TDCOLORS_KANNADA.clear()
+            TRCOLORS_KANNADA.clear()
+        elif len(TRZEE_KANNADA) > 0:
+            TDZEE_KANNADA.clear()
+            TDZEE_KANNADA = TRZEE_KANNADA
+            for KEY in TDZEE_KANNADA:
+                await client.send_message(chat_id=message.chat.id, text = f"{KEY}\n{TDZEE_KANNADA[KEY]}\n\n")
+            TDZEE_KANNADA.clear()
+            TRZEE_KANNADA.clear()
+        else:
+            pass
+            
+            
+    #here we delete the edited post from the bot after 5min
     time.sleep(300)
     await e_pic.delete()
+    
 
 async def get_short(SL_URL, SL_API, Tlink):
     # FireLinks shorten
