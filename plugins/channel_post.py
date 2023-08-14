@@ -105,23 +105,23 @@ async def channel_post(client: Client, message: Message):
 
     t = datetime.now(india)
     TIME_DAY = t.strftime('%H:%M %p')
-    if TIME_DAY == "17:10 PM":
+    if TIME_DAY == "17:30 PM":
         if len(TDSTAR_SUVARNA) and len(TDCOLORS_KANNADA) and len(TDZEE_KANNADA) > 0:
             for KEY in TDSTAR_SUVARNA:
                 txt_star = ''
-                txt_star += f"{KEY}\n{TDSTAR_SUVARNA[KEY]}\n\n"
+                txt_star += KEY+'\n'+TDSTAR_SUVARNA[KEY]+'\n\n'
                 
-            await client.send_message(chat_id=int(-1001956515516), text = txt_star)
+            await client.send_message(chat_id=int(-1001956515516), text = f"{txt_star}")
             for KEY in TDCOLORS_KANNADA:
                 txt_color = ''
-                txt_color += f"{KEY}\n{TDCOLORS_KANNADA[KEY]}\n\n"
+                txt_color += KEY+'\n'+TDCOLORS_KANNADA[KEY]+'\n\n'
                 
-            await client.send_message(chat_id=int(-1001956515516), text = txt_color)
+            await client.send_message(chat_id=int(-1001956515516), text = f"{txt_color}")
             for KEY in TDZEE_KANNADA:
                 txt_zee = ''
-                txt_zee += f"{KEY}\n{TDZEE_KANNADA[KEY]}\n\n"
+                txt_zee += KEY+'\n'+TDZEE_KANNADA[KEY]+'\n\n'
                 
-            await client.send_message(chat_id=int(-1001956515516), text = txt_zee)
+            await client.send_message(chat_id=int(-1001956515516), text =f"{txt_zee}")
             TDSTAR_SUVARNA.clear()
             TDCOLORS_KANNADA.clear()
             TDZEE_KANNADA.clear()
@@ -133,9 +133,9 @@ async def channel_post(client: Client, message: Message):
             TDSTAR_SUVARNA.update(TRSTAR_SUVARNA)
             for KEY in TDSTAR_SUVARNA:
                 txt_star = ''
-                txt_star += f"{KEY}\n{TDSTAR_SUVARNA[KEY]}\n\n"
+                txt_star += KEY+'\n'+TDSTAR_SUVARNA[KEY]+'\n\n'
                 
-            await client.send_message(chat_id=int(-1001956515516), text = txt_star)
+            await client.send_message(chat_id=int(-1001956515516), text = f"{txt_star}")
             TDSTAR_SUVARNA.clear()
             TRSTAR_SUVARNA.clear()
         elif len(TRCOLORS_KANNADA) > 0:
@@ -143,9 +143,9 @@ async def channel_post(client: Client, message: Message):
             TDCOLORS_KANNADA.update(TRCOLORS_KANNADA)
             for KEY in TDCOLORS_KANNADA:
                 txt_color = ''
-                txt_color += f"{KEY}\n{TDCOLORS_KANNADA[KEY]}\n\n"
+                txt_color += KEY+'\n'+TDCOLORS_KANNADA[KEY]+'\n\n'
                 
-            await client.send_message(chat_id=int(-1001956515516), text = txt_color)
+            await client.send_message(chat_id=int(-1001956515516), text = f"{txt_color}")
             TDCOLORS_KANNADA.clear()
             TRCOLORS_KANNADA.clear()
         elif len(TRZEE_KANNADA) > 0:
@@ -153,9 +153,9 @@ async def channel_post(client: Client, message: Message):
             TDZEE_KANNADA.update(TRZEE_KANNADA)
             for KEY in TDZEE_KANNADA:
                 txt_zee = ''
-                txt_zee += f"{KEY}\n{TDZEE_KANNADA[KEY]}\n\n"
+                txt_zee += KEY+'\n'+TDZEE_KANNADA[KEY]+'\n\n'
                 
-            await client.send_message(chat_id=int(-1001956515516), text = txt_zee)
+            await client.send_message(chat_id=int(-1001956515516), text =f"{txt_zee}")
             TDZEE_KANNADA.clear()
             TRZEE_KANNADA.clear()
         else:
