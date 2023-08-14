@@ -128,9 +128,10 @@ async def channel_post(client: Client, message: Message):
             TDZEE_KANNADA.clear()
         else:
             pass
+            
         if len(TRSTAR_SUVARNA) > 0:
             TDSTAR_SUVARNA.clear()
-            TDSTAR_SUVARNA = TRSTAR_SUVARNA
+            TDSTAR_SUVARNA.update(TRSTAR_SUVARNA)
             for KEY in TDSTAR_SUVARNA:
                 txt_star = ''
                 txt_star += f"{KEY}\n{TDSTAR_SUVARNA[KEY]}\n\n"
@@ -140,7 +141,7 @@ async def channel_post(client: Client, message: Message):
             TRSTAR_SUVARNA.clear()
         elif len(TRCOLORS_KANNADA) > 0:
             TDCOLORS_KANNADA.clear()
-            TDCOLORS_KANNADA = TRCOLORS_KANNADA
+            TDCOLORS_KANNADA.update(TRCOLORS_KANNADA)
             for KEY in TDCOLORS_KANNADA:
                 txt_color = ''
                 txt_color += f"{KEY}\n{TDCOLORS_KANNADA[KEY]}\n\n"
@@ -150,7 +151,7 @@ async def channel_post(client: Client, message: Message):
             TRCOLORS_KANNADA.clear()
         elif len(TRZEE_KANNADA) > 0:
             TDZEE_KANNADA.clear()
-            TDZEE_KANNADA = TRZEE_KANNADA
+            TDZEE_KANNADA.update(TRZEE_KANNADA)
             for KEY in TDZEE_KANNADA:
                 txt_zee = ''
                 txt_zee += f"{KEY}\n{TDZEE_KANNADA[KEY]}\n\n"
